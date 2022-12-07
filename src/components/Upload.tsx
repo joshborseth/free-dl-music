@@ -1,7 +1,9 @@
 import { type FormEvent, useRef } from "react";
+import { trpc } from "../utils/trpc";
 
 export default function Upload() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const { mutate } = trpc.sheet.createSheet.useMutation();
   const uploadPhoto = async (file: File, e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const filename = encodeURIComponent(file.name);
@@ -19,13 +21,22 @@ export default function Upload() {
       method: "POST",
       body: formData,
     });
-    if (upload.ok) {
-      if (!inputRef.current) return;
-      inputRef.current.value = "";
-      console.log("Upload successful!");
-    } else {
-      console.error("Upload failed.");
-    }
+    mutate(
+      {
+        fileUrl: `https://free-drumline-music-sheets.s3.us-west-2.amazonaws.com/${filename}`,
+      },
+      {
+        onSuccess: () => {
+          if (upload.ok) {
+            if (!inputRef.current) return;
+            inputRef.current.value = "";
+            console.log("Upload successful!");
+          } else {
+            console.error("Upload failed.");
+          }
+        },
+      }
+    );
   };
   return (
     <form
