@@ -12,7 +12,6 @@ export default function Upload() {
       (await createPresignedUrl({
         fileName: file.name,
         fileType: file.type,
-        fileUrl: `https://free-drumline-music-sheets.s3.us-west-2.amazonaws.com/${file.name}`,
       })) as any;
     const data = {
       ...fields,

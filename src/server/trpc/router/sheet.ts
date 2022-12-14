@@ -7,12 +7,16 @@ export const sheetRouter = router({
   createSheet: publicProcedure
     .input(
       z.object({
-        fileUrl: z.string(),
         fileName: z.string(),
         fileType: z.string(),
       })
     )
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      await ctx.prisma.sheet.create({
+        data: {
+          s3ImageKey: input.fileName,
+        },
+      });
       return new Promise((resolve, reject) => {
         s3.createPresignedPost(
           {
@@ -26,7 +30,7 @@ export const sheetRouter = router({
             Expires: 60,
             Bucket: process.env.BUCKET_NAME,
           },
-          (err, signed) => {
+          async (err, signed) => {
             if (err) return reject(err);
             resolve(signed);
           }

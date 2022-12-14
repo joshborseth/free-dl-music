@@ -69,5 +69,5 @@ model Sheet {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  fileUrl   String
+  s3ImageKey   String
 }
