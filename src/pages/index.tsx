@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import DesktopNav from "../components/Drawer/DesktopNav";
 import MobileNav from "../components/Drawer/MobileNav";
 import Head from "next/head";
-import Image from "next/image";
 
 const Index: NextPage = () => {
   return (
@@ -17,21 +16,36 @@ const Index: NextPage = () => {
           <DesktopNav />
           <main className="relative">
             <div className="absolute top-0 right-0 z-10"></div>
-            <div className="grid min-h-screen w-full place-items-center">
-              <div className="flex flex-col items-center">
+            <section className="grid min-h-screen w-full place-items-center">
+              <article className="flex flex-col items-center">
                 <h1 className="text-center text-4xl font-bold">
                   Free Drumline Music
                 </h1>
                 <p className="text-center">
                   A free, open-source database of drumline music.
                 </p>
-              </div>
-            </div>
+              </article>
+            </section>
+            <section className="grid min-h-[20rem] grid-cols-3 bg-base-200">
+              <h2 className="col-span-3 flex items-center justify-center text-center text-2xl">
+                Our top songs
+              </h2>
+              <TopSong songName="Song 1" />
+              <TopSong songName="Song 2" />
+              <TopSong songName="Song 3" />
+            </section>
           </main>
           <Footer />
         </div>
         <MobileNav />
       </div>
+    </div>
+  );
+};
+const TopSong = ({ songName }: { songName: string }) => {
+  return (
+    <div className="mx-5 rounded-md border bg-base-100">
+      <h2 className="text-xl">{songName}</h2>
     </div>
   );
 };

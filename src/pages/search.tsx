@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type NextPage } from "next";
 import DesktopNav from "../components/Drawer/DesktopNav";
 import Footer from "../components/Footer";
@@ -27,8 +28,18 @@ const Search: NextPage = () => {
               <input
                 type="text"
                 placeholder="🔍 Search"
-                className="z-20 h-10 w-full rounded-md border px-2 text-2xl focus:outline-none"
+                className="z-20 h-10 w-full rounded-md border px-2 text-2xl shadow-lg focus:outline-none"
               />
+              <button
+                className="absolute top-0 right-0 z-20 mt-2 mr-1 rounded bg-base-200 px-1 text-xs text-base-content"
+                onDoubleClick={(e: any) => {
+                  e.preventDefault();
+                  e.target.form[0].value = "";
+                  setSearch("");
+                }}
+              >
+                Clear
+              </button>
               <Results input={search} />
             </form>
           </main>

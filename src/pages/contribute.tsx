@@ -10,9 +10,7 @@ const Contribute: NextPage = () => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           <DesktopNav />
-          <main className="relative min-h-screen">
-            <div className="absolute top-0 right-0 z-10"></div>
-            <h2>Contribute</h2>
+          <main className="relative flex min-h-screen justify-center">
             <Upload />
           </main>
           <Footer />

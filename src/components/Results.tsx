@@ -8,13 +8,17 @@ const Results = ({ input }: { input: string }) => {
         input === "" ? "opacity-0" : "opacity-100"
       } overflow-auto`}
     >
-      <SearchItem itemData={{ name: "test" }} />
-      <SearchItem itemData={{ name: input }} />
-      <SearchItem itemData={{ name: input }} />
-      <SearchItem itemData={{ name: input }} />
-      <SearchItem itemData={{ name: input }} />
-      <SearchItem itemData={{ name: input }} />
-      <SearchItem itemData={{ name: input }} />
+      {input && (
+        <>
+          <SearchItem itemData={{ name: "test" }} />
+          <SearchItem itemData={{ name: input }} />
+          <SearchItem itemData={{ name: input }} />
+          <SearchItem itemData={{ name: input }} />
+          <SearchItem itemData={{ name: input }} />
+          <SearchItem itemData={{ name: input }} />
+          <SearchItem itemData={{ name: input }} />
+        </>
+      )}
     </div>
   );
 };
@@ -24,9 +28,9 @@ const SearchItem = ({ itemData }: { itemData: { name: string } }) => {
     <div
       className={`m-2 h-24 rounded bg-white p-5 ${
         loading && "animate-[pulse_1s_ease-in-out_infinite]"
-      } flex justify-between`}
+      } flex justify-between shadow-lg`}
     >
-      <p>{itemData.name}</p>
+      <p className="p-2">{itemData.name}</p>
       <Image
         src="https://placeimg.com/260/400/arch" //Placeholder Image !!
         width="200"

@@ -35,9 +35,9 @@ export default function Upload() {
         if (!file) return;
         uploadPhoto(file, e);
       }}
-      className="grid place-items-center"
+      className="m-3 grid h-1/2 w-2/3 place-items-center justify-self-center rounded-md border-2 border-gray-300 p-3 shadow-xl"
     >
-      <p>Upload a .png or .jpg image (max 1MB).</p>
+      <p className="p-1">Upload a .png or .jpg image (max 1MB).</p>
       <input
         ref={inputRef}
         type="file"
