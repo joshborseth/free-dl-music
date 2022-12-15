@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type FormEvent, useRef } from "react";
 import { trpc } from "../utils/trpc";
 
@@ -34,10 +35,18 @@ export default function Upload() {
         if (!file) return;
         uploadPhoto(file, e);
       }}
+      className="z-20 flex flex-col"
     >
       <p>Upload a .png or .jpg image (max 1MB).</p>
-      <input ref={inputRef} type="file" accept="image/png, image/jpeg" />
-      <button type="submit">Upload</button>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/png, image/jpeg"
+        className="file-input-bordered file-input w-full max-w-xs"
+      />
+      <button type="submit" className="btn">
+        Upload
+      </button>
     </form>
   );
 }
