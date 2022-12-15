@@ -35,7 +35,7 @@ export default function Upload() {
         if (!file) return;
         uploadPhoto(file, e);
       }}
-      className="z-20 flex flex-col"
+      className="grid place-items-center"
     >
       <p>Upload a .png or .jpg image (max 1MB).</p>
       <input
