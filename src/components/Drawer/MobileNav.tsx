@@ -5,6 +5,9 @@ const MobileNav = () => {
       <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
       <ul className="menu relative w-[65%] bg-base-100 p-4">
         <li>
+          <Link href="browse">Browse Music</Link>
+        </li>
+        <li>
           <Link href="about">About Us</Link>
         </li>
         <li>

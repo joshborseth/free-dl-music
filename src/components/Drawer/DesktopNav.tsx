@@ -28,6 +28,11 @@ const DesktopNav = () => {
       <nav className="hidden flex-none md:block">
         <ul className="menu menu-horizontal">
           <li>
+            <Link href="browse" className="rounded">
+              Browse Music
+            </Link>
+          </li>
+          <li>
             <Link href="about" className="rounded">
               About <GrContactInfo />
             </Link>
