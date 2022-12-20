@@ -27,7 +27,7 @@ const Search: NextPage = () => {
             >
               <input
                 type="text"
-                placeholder="🔍 Search"
+                placeholder="Search"
                 className="z-20 h-10 w-full rounded-md border px-2 text-2xl shadow-lg focus:outline-none"
               />
               <button
